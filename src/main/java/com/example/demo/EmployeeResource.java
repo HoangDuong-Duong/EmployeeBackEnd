@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.model.Employee;
+import com.example.demo.model.HelloWorld;
 import com.example.demo.service.EmployeeService;
 import com.example.demo.util.ExcelExporter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,4 +64,17 @@ public class EmployeeResource {
         ExcelExporter excelExport = new ExcelExporter(employeeList);
         excelExport.export(response);
     }
+
+    @GetMapping("/helloWorld")
+    public HelloWorld getMessage(){
+        return new HelloWorld("This is Sparta");
+    }
+
+
+    @GetMapping("/helloWorld/{name}")
+        public HelloWorld getMessageWithPathVariable(@PathVariable String name){
+            return new HelloWorld(String.format("HelloWorld , %s",name ));
+        }
+
+
 }
