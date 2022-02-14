@@ -4,6 +4,7 @@ import com.example.demo.model.Employee;
 import com.example.demo.model.HelloWorld;
 import com.example.demo.service.EmployeeService;
 import com.example.demo.util.ExcelExporter;
+import com.example.demo.util.ExcelReportAgency;
 import com.example.demo.util.ExcelReportControl;
 import com.example.demo.util.ExcelReportVNP;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,6 +93,17 @@ public class EmployeeResource {
         List<Employee> employeeList = employeeService.findAllEmployee();
         ExcelReportVNP excelReportVNP = new ExcelReportVNP(employeeList);
         excelReportVNP.exportExcelReportVNP(response);
+    }
+
+    @GetMapping("/excel/reportagency")
+    public void exportToExcelReporAgency(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+        String headerValue ="attachement; fileName =ReportControl.xlsx";
+        response.setHeader(headerKey, headerValue);
+        List<Employee> employeeList = employeeService.findAllEmployee();
+        ExcelReportAgency excelReportVNP = new ExcelReportAgency(employeeList);
+        excelReportVNP.exportExcelReportAgency(response);
     }
 
 
