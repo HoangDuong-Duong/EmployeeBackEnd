@@ -4,6 +4,8 @@ import com.example.demo.model.Employee;
 import com.example.demo.model.HelloWorld;
 import com.example.demo.service.EmployeeService;
 import com.example.demo.util.ExcelExporter;
+import com.example.demo.util.ExcelReportControl;
+import com.example.demo.util.ExcelReportVNP;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +25,11 @@ public class EmployeeResource {
     public EmployeeResource(EmployeeService employeeService) {
         this.employeeService = employeeService;
     }
+
+
+
+
+
 
     @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployee(){
@@ -64,6 +71,32 @@ public class EmployeeResource {
         ExcelExporter excelExport = new ExcelExporter(employeeList);
         excelExport.export(response);
     }
+
+    @GetMapping("/excel/reportcontrol")
+    public void exportToExcelReportControl(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+        String headerValue ="attachement; fileName =ReportControl.xlsx";
+        response.setHeader(headerKey, headerValue);
+        List<Employee> employeeList = employeeService.findAllEmployee();
+        ExcelReportControl excelReportControl = new ExcelReportControl(employeeList);
+        excelReportControl.exportExcelReportControl(response);
+    }
+
+    @GetMapping("/excel/reportvnp")
+    public void exportToExcelReporVNP(HttpServletResponse response) throws IOException {
+        response.setContentType("application/octet-stream");
+        String headerKey = "Content-Disposition";
+        String headerValue ="attachement; fileName =ReportControl.xlsx";
+        response.setHeader(headerKey, headerValue);
+        List<Employee> employeeList = employeeService.findAllEmployee();
+        ExcelReportVNP excelReportVNP = new ExcelReportVNP(employeeList);
+        excelReportVNP.exportExcelReportVNP(response);
+    }
+
+
+
+
 
     @GetMapping("/helloWorld")
     public HelloWorld getMessage(){
