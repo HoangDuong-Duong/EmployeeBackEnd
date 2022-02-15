@@ -90,7 +90,7 @@ public class ExcelReportAgency {
         fontCellHeader11.setItalic(true);
         fontCellHeader11.setBold(true);
         cellStyleItalicBold.setFont(fontCellHeader11);
-        cellStyleItalicBold.setAlignment(CellStyle.ALIGN_RIGHT);
+        cellStyleItalicBold.setAlignment(CellStyle.ALIGN_CENTER);
         cellStyleItalicBold.setVerticalAlignment(CellStyle.VERTICAL_CENTER);
         cellStyleItalicBold.setWrapText(true);
 
@@ -127,7 +127,7 @@ public class ExcelReportAgency {
 
         CellStyle cellStyleVlue = workbook.createCellStyle();
         XSSFFont fontCellHeader12 = workbook.createFont();
-        fontCellHeader12.setBold(true);
+//        fontCellHeader12.setBold(true);
         fontCellHeader12.setFontName("Times New Roman");
         fontCellHeader12.setFontHeight(12);
         cellStyleVlue.setFont(fontCellHeader12);
@@ -167,21 +167,16 @@ public class ExcelReportAgency {
 
 
         //Size ô
-        sheet.setColumnWidth(0, 2719);
-        sheet.setColumnWidth(1, 8650);
-        sheet.setColumnWidth(2, 3482);
-        sheet.setColumnWidth(3, 3883);
-        sheet.setColumnWidth(4, 4042);
-        sheet.setColumnWidth(5, 4081);
-        sheet.setColumnWidth(6, 4563);
-        sheet.setColumnWidth(7, 4482);
-        sheet.setColumnWidth(8, 5241);
-        sheet.setColumnWidth(9, 4843);
+        sheet.setColumnWidth(0, 2042);
+        sheet.setColumnWidth(1, 3602);
+        sheet.setColumnWidth(2, 6883);
+        sheet.setColumnWidth(3, 3560);
+        sheet.setColumnWidth(4, 4081);
+        sheet.setColumnWidth(5, 3053);
+        sheet.setColumnWidth(6, 4283);
+        sheet.setColumnWidth(7, 4283);
 
-
-
-
-
+        
 
         //Row1
         Row row1 = sheet.createRow(0);
@@ -309,7 +304,7 @@ public class ExcelReportAgency {
 
         //Row 10
         Row row10 = sheet.createRow(9);
-        row10.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
+//        row10.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
         Cell cell24 = row10.createCell(0);
         cell24.setCellValue("1");
         cell24.setCellStyle(cellStyleValue);
@@ -340,7 +335,7 @@ public class ExcelReportAgency {
 
         //Row 11
         Row row11 = sheet.createRow(10);
-        row11.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
+//        row11.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
         Cell cell32 = row11.createCell(0);
         cell32.setCellValue("2");
         cell32.setCellStyle(cellStyleValue);
@@ -369,7 +364,7 @@ public class ExcelReportAgency {
 
         //Row 12
         Row row12 = sheet.createRow(11);
-        row12.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
+//        row12.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
         Cell cell40 = row12.createCell(0);
         cell40.setCellValue("3");
         cell40.setCellStyle(cellStyleValue);
@@ -401,7 +396,7 @@ public class ExcelReportAgency {
 
         //Row 13
         Row row13 = sheet.createRow(12);
-        row13.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
+//        row13.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
         Cell cell48 = row13.createCell(0);
         cell48.setCellValue("4");
         cell48.setCellStyle(cellStyleValue);
@@ -431,7 +426,7 @@ public class ExcelReportAgency {
 
         //Row thiếu
         Row row100 = sheet.createRow(13);
-        row100.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
+//        row100.setHeightInPoints((2 * sheet.getDefaultRowHeightInPoints()));
         Cell cell100 = row100.createCell(0);
         final int cellrange58 = sheet.addMergedRegion( new CellRangeAddress(13,13,0,2));
         cell100.setCellValue("Tổng cộng");
@@ -534,9 +529,9 @@ public class ExcelReportAgency {
         cell67.setCellStyle(cellStyle8);
 
         //Row 21
-        Row row21 = sheet.createRow(29);
+        Row row21 = sheet.createRow(27);
         Cell cell68 = row21.createCell(0);
-        final int cellrange68 = sheet.addMergedRegion( new CellRangeAddress(29 ,29,0,1));
+        final int cellrange68 = sheet.addMergedRegion( new CellRangeAddress(27 ,27,0,1));
         cell68.setCellValue("Trần Thị Mai Liên");
         cell68.setCellStyle(cellStyle8);
 
@@ -545,7 +540,7 @@ public class ExcelReportAgency {
         cell69.setCellStyle(cellStyle8);
 
         Cell cell70 = row21.createCell(3);
-        final int cellrange70 = sheet.addMergedRegion( new CellRangeAddress(29 ,29,3,4));
+        final int cellrange70 = sheet.addMergedRegion( new CellRangeAddress(27 ,27,3,4));
         cell70.setCellValue("Trần Trung Nghĩa");
         cell70.setCellStyle(cellStyle8);
 
